@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Zey Yusuf</title>
+    <title>Projects | Zeynal Ismayilzada</title>
     <meta
       name="description"
-      content="Explore highlighted coursework and personal projects by Zey Yusuf."
+      content="Explore highlighted coursework and personal projects by Zeynal Ismayilzada."
     />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,16 +19,41 @@
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
-        <a class="nav__brand" href="index.html">ZY.</a>
-        <button
-          class="nav__toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <a class="nav__brand" href="index.html">Zeynal</a>
+        <div class="nav__controls">
+          <button
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+          >
+            <span class="theme-toggle__track">
+              <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              <span class="theme-toggle__thumb"></span>
+              <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </button>
+          <button
+            class="nav__toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
         <ul class="nav__menu">
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="about.html">About</a></li>
@@ -47,10 +72,10 @@
     <main>
       <section class="page-hero">
         <p class="eyebrow">Selected Work</p>
-        <h1>Projects that blend front-end craft with learning design.</h1>
+        <h1>Projects that bridge mathematical theory with practical applications.</h1>
         <p class="lead">
-          Each build starts with research, sketching user journeys, and creating
-          accessible UI patterns before writing a line of code.
+          From hardware circuits to computational problem-solving, these projects showcase
+          how mathematical principles come to life through hands-on implementation.
         </p>
       </section>
 
@@ -75,35 +100,25 @@
         </div>
         <article class="project-detail__content">
           <p class="eyebrow">Project 1</p>
-          <h2>Accessible Study Planner</h2>
+          <h2>Logic Gate Circuit Project</h2>
           <p>
-            A responsive web app that helps students map focus blocks, visualize
-            streaks, and adapt schedules around energy levels. Built for a
-            course assignment to demonstrate responsive layouts and semantic HTML.
+            A hands-on hardware project building a functional circuit using AND, OR, and XOR logic gates.
+            This real-world implementation demonstrates fundamental digital logic principles through physical
+            wiring and component assembly, showcasing how mathematical concepts translate into tangible electronic systems.
           </p>
           <ul class="list">
-            <li>Features drag-and-drop task ordering and progress badges.</li>
+            <li>Designed and assembled a physical circuit cabinet with multiple logic gate modules.</li>
             <li>
-              Designed mobile-first with WCAG-compliant color contrast and keyboard
-              navigation.
+              Collaborated with team members to wire AND, OR, and XOR gates, testing their functionality
+              and understanding their mathematical relationships.
             </li>
-            <li>Deployed via GitHub Pages with automated asset minification.</li>
+            <li>Applied discrete mathematics and digital logic theory to create a working prototype.</li>
           </ul>
           <div class="pill-list pill-list--inline">
-            <span>HTML5</span>
-            <span>CSS Grid &amp; Flexbox</span>
-            <span>Vanilla JS</span>
-            <span>GitHub Actions</span>
-          </div>
-          <div class="project-detail__links">
-            <a
-              class="btn"
-              href="https://github.com/zey/personal-portfolio"
-              target="_blank"
-              rel="noreferrer"
-              >View Code</a
-            >
-            <a class="btn btn--ghost" href="index.html#home">See Live Demo</a>
+            <span>Digital Logic</span>
+            <span>Circuit Design</span>
+            <span>AND/OR/XOR Gates</span>
+            <span>Hardware Assembly</span>
           </div>
         </article>
       </section>
@@ -145,7 +160,7 @@
 
     <footer class="site-footer" id="contact-footer">
       <div class="site-footer__brand">
-        <span>© <span id="year"></span> Zey Yusuf</span>
+        <span>© <span id="year"></span> Zeynal Ismayilzada</span>
         <a href="https://github.com/zey" target="_blank" rel="noreferrer">GitHub</a>
       </div>
       <div class="site-footer__social">
@@ -197,6 +212,23 @@
         navToggle.addEventListener("click", () => {
           const isOpen = navMenu.classList.toggle("is-open");
           navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+      
+      // Theme toggle
+      const themeToggle = document.querySelector(".theme-toggle");
+      const html = document.documentElement;
+      
+      // Initialize theme from localStorage or default to dark
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      html.setAttribute("data-theme", savedTheme);
+      
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const currentTheme = html.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          html.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
         });
       }
     </script>
