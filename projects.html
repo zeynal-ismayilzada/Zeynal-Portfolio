@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Zey Yusuf</title>
+    <meta
+      name="description"
+      content="Explore highlighted coursework and personal projects by Zey Yusuf."
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__brand" href="index.html">ZY.</a>
+        <button
+          class="nav__toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav__menu">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li>
+            <a class="nav__link nav__link--active" href="projects.html">Projects</a>
+          </li>
+          <li>
+            <a class="nav__link" href="index.html#contact" aria-describedby="contact-footer"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Selected Work</p>
+        <h1>Projects that blend front-end craft with learning design.</h1>
+        <p class="lead">
+          Each build starts with research, sketching user journeys, and creating
+          accessible UI patterns before writing a line of code.
+        </p>
+      </section>
+
+      <section class="section project-detail" id="project-1">
+        <div class="project-detail__media">
+          <figure class="project-photo project-photo--primary">
+            <img
+              src="assets/images/image1.jpeg"
+              alt="Cabinet prototype for the logic-gate planner"
+              loading="lazy"
+            />
+            <figcaption>Cabinet installation showcasing the project’s physical interface.</figcaption>
+          </figure>
+          <figure class="project-photo project-photo--secondary">
+            <img
+              src="assets/images/image2.png"
+              alt="Team wiring AND, OR, and XOR gates"
+              loading="lazy"
+            />
+            <figcaption>Collaborating with the team to wire AND/OR/XOR logic modules.</figcaption>
+          </figure>
+        </div>
+        <article class="project-detail__content">
+          <p class="eyebrow">Project 1</p>
+          <h2>Accessible Study Planner</h2>
+          <p>
+            A responsive web app that helps students map focus blocks, visualize
+            streaks, and adapt schedules around energy levels. Built for a
+            course assignment to demonstrate responsive layouts and semantic HTML.
+          </p>
+          <ul class="list">
+            <li>Features drag-and-drop task ordering and progress badges.</li>
+            <li>
+              Designed mobile-first with WCAG-compliant color contrast and keyboard
+              navigation.
+            </li>
+            <li>Deployed via GitHub Pages with automated asset minification.</li>
+          </ul>
+          <div class="pill-list pill-list--inline">
+            <span>HTML5</span>
+            <span>CSS Grid &amp; Flexbox</span>
+            <span>Vanilla JS</span>
+            <span>GitHub Actions</span>
+          </div>
+          <div class="project-detail__links">
+            <a
+              class="btn"
+              href="https://github.com/zey/personal-portfolio"
+              target="_blank"
+              rel="noreferrer"
+              >View Code</a
+            >
+            <a class="btn btn--ghost" href="index.html#home">See Live Demo</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="section project-grid">
+        <article class="card project-card--compact">
+          <h3>Hour of Code facilitator</h3>
+          <p>
+            Organized a workshop guiding first-time coders through block-based puzzles,
+            then translating concepts into JavaScript snippets.
+          </p>
+          <ul class="list">
+            <li>Created printable lesson plan and reflection worksheet.</li>
+            <li>Supported 25+ participants with pair-programming coaching.</li>
+          </ul>
+        </article>
+
+        <article class="card project-card--compact">
+          <h3>Design systems study</h3>
+          <p>
+            Documented reusable components for class projects, including token definitions,
+            form patterns, and accessibility notes.
+          </p>
+          <ul class="list">
+            <li>Improved team velocity by 20% through shared guidelines.</li>
+            <li>Introduced linting + Prettier workflow for consistency.</li>
+          </ul>
+        </article>
+
+        <article class="card project-card--compact">
+          <h3>Coming soon</h3>
+          <p>
+            Currently prototyping an interactive syllabus companion that keeps classmates
+            on track with coursework milestones.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact-footer">
+      <div class="site-footer__brand">
+        <span>© <span id="year"></span> Zey Yusuf</span>
+        <a href="https://github.com/zey" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <div class="site-footer__social">
+        <a
+          class="icon-link"
+          href="https://github.com/zey"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub profile"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.865 10.93c.575.105.785-.25.785-.556 0-.274-.01-1-.016-1.96-3.2.695-3.877-1.543-3.877-1.543-.523-1.329-1.279-1.684-1.279-1.684-1.045-.715.08-.701.08-.701 1.157.082 1.767 1.188 1.767 1.188 1.028 1.763 2.698 1.254 3.356.96.105-.745.403-1.255.733-1.542-2.553-.29-5.238-1.277-5.238-5.682 0-1.255.45-2.28 1.187-3.084-.12-.29-.515-1.458.113-3.04 0 0 .966-.31 3.167 1.178a10.93 10.93 0 0 1 5.768 0c2.2-1.488 3.166-1.178 3.166-1.178.63 1.582.236 2.75.117 3.04.74.804 1.186 1.83 1.186 3.084 0 4.417-2.69 5.39-5.254 5.674.415.358.785 1.067.785 2.15 0 1.552-.015 2.803-.015 3.185 0 .309.207.667.792.553A11.503 11.503 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"
+            />
+          </svg>
+        </a>
+        <a
+          class="icon-link"
+          href="https://www.codecademy.com/profiles/zey"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Codecademy profile"
+        >
+          <svg viewBox="0 0 30 20" aria-hidden="true">
+            <path
+              d="M1 10C1 4.477 5.477 0 11 0h8c5.523 0 10 4.477 10 10s-4.477 10-10 10h-8C5.477 20 1 15.523 1 10Zm8.884-3.316c-.804.946-1.39 2.21-1.39 3.316 0 1.106.586 2.37 1.39 3.316.807.95 1.873 1.684 3.054 1.684 1.083 0 1.971-.55 2.688-1.316l1.965 1.963C17.454 16.004 15.913 17 13.996 17c-1.742 0-3.34-.95-4.512-2.22C8.316 13.365 7.5 11.73 7.5 10c0-1.73.816-3.365 1.984-4.78C10.658 3.95 12.256 3 13.998 3c1.917 0 3.458.996 4.59 2.353l-1.965 1.963c-.717-.767-1.605-1.316-2.688-1.316-1.181 0-2.247.735-3.054 1.684Zm9.644 3.316a1 1 0 1 1 0-2h3.972a1 1 0 1 1 0 2h-3.972Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <a
+        class="repo-link"
+        href="https://github.com/zey/personal-portfolio"
+        target="_blank"
+        rel="noreferrer"
+      >
+        View GitHub Repository
+      </a>
+    </footer>
+
+    <script>
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+      const navToggle = document.querySelector(".nav__toggle");
+      const navMenu = document.querySelector(".nav__menu");
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navMenu.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+    </script>
+  </body>
+</html>
