@@ -325,6 +325,8 @@ main {
   gap: 2rem;
 }
 
+/* Add this to your existing main.css file in the project-detail section */
+
 .project-detail__media {
   display: grid;
   grid-template-columns: 1fr;
@@ -337,18 +339,25 @@ main {
   border-radius: 28px;
   box-shadow: var(--shadow);
   padding: 0.75rem;
+  overflow: hidden; /* Ensures images don't overflow their container */
 }
 
 .project-photo img {
   border-radius: 22px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* This ensures images fill the container properly */
 }
 
 .project-photo figcaption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: var(--muted);
+  text-align: center;
 }
 
+/* Ensure consistent aspect ratios for all project photos */
 .project-photo--primary img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -357,6 +366,28 @@ main {
 .project-photo--secondary img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+/* Optional: Add a loading state for images */
+.project-photo img {
+  background: linear-gradient(90deg, var(--border) 25%, var(--surface) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Remove animation once image is loaded */
+.project-photo img.loaded {
+  animation: none;
+  background: transparent;
 }
 
 .project-detail__content {
@@ -963,3 +994,365 @@ main {
 .project-link:hover {
   gap: 0.75rem;
 }
+
+/* Add this to your main.css file */
+
+/* Make all Project 2 images rectangular (16:9) */
+#project-2 .project-photo--primary img,
+#project-2 .project-photo--secondary img {
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+}
+
+/* Optional: Add a class for rectangular images */
+.rectangular-image {
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+}
+
+/* Keep Project 1 with original aspect ratios */
+#project-1 .project-photo--primary img {
+  aspect-ratio: 4 / 3;
+}
+
+#project-1 .project-photo--secondary img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Add this to your main.css */
+
+/* Consistent image container for all project photos */
+.project-photo .image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--border);
+}
+
+.project-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.project-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Ensure all images have consistent aspect ratios */
+#project-1 .project-photo .image-container,
+#project-2 .project-photo .image-container {
+  padding-bottom: 75%; /* Force 4:3 ratio for all */
+}
+
+/* Figcaption styling - inside the image container */
+.project-photo figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  padding: 1.25rem 1.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-radius: 0 0 22px 22px;
+  z-index: 2;
+}
+
+/* Adjust object position for specific images if needed */
+#project-2 .project-photo--primary img {
+  object-position: center 25%; /* Adjust if image4 needs vertical centering */
+}
+
+#project-2 .project-photo--secondary img {
+  object-position: center center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-photo .image-container {
+    padding-bottom: 66.67%; /* 3:2 ratio on mobile */
+  }
+  
+  .project-photo figcaption {
+    padding: 1rem 1.25rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Update the project image styles in main.css - MAKE THEM RECTANGULAR (16:9) */
+
+/* Rectangular image container for all project photos - 16:9 aspect ratio */
+.project-photo .image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625 * 100 = 56.25%) */
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--border);
+}
+
+.project-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.project-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Figcaption styling - inside the image container */
+.project-photo figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  padding: 1.25rem 1.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-radius: 0 0 22px 22px;
+  z-index: 2;
+}
+
+/* Ensure ALL images have consistent RECTANGULAR aspect ratios */
+#project-1 .project-photo .image-container,
+#project-2 .project-photo .image-container {
+  padding-bottom: 56.25%; /* Force 16:9 ratio for ALL images */
+}
+
+/* Adjust object position for specific images */
+#project-2 .project-photo--primary img {
+  object-position: center 25%; /* Adjust if image4 needs vertical centering */
+}
+
+#project-2 .project-photo--secondary img {
+  object-position: center center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-photo .image-container {
+    padding-bottom: 56.25%; /* Keep 16:9 ratio on mobile too */
+  }
+  
+  .project-photo figcaption {
+    padding: 1rem 1.25rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Also update the existing CSS for consistency */
+.project-photo--primary img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-photo--secondary img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* FIX: Make images fill the entire container, no empty space at bottom */
+
+/* Rectangular container - 3:2 aspect ratio */
+.project-photo .image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--border);
+}
+
+/* CRITICAL FIX: Make image fill entire container */
+.project-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important; /* Force full height */
+  object-fit: cover !important; /* Force cover to fill container */
+  object-position: center center; /* Center the image */
+  transition: transform 0.3s ease;
+}
+
+/* For Project 2 images specifically, adjust positioning */
+#project-2 .project-photo--primary img {
+  object-position: center top !important; /* Align to top to eliminate bottom space */
+}
+
+#project-2 .project-photo--secondary img {
+  object-position: center center !important;
+}
+
+/* For Project 1 images */
+#project-1 .project-photo--primary img {
+  object-position: center center !important;
+}
+
+#project-1 .project-photo--secondary img {
+  object-position: center center !important;
+}
+
+/* Figcaption - sits at the very bottom of the container */
+.project-photo figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 1.25rem 1.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  z-index: 2;
+  /* Remove border-radius to fill entire bottom */
+  border-radius: 0;
+}
+
+/* Hover effect */
+.project-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Ensure ALL containers have same aspect ratio */
+#project-1 .project-photo .image-container,
+#project-2 .project-photo .image-container {
+  padding-bottom: 66.67%;
+}
+
+/* Alternative: If images still have empty space, use JavaScript fix */
+.image-fill-fix {
+  object-fit: cover !important;
+  object-position: center top !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* FIX EMPTY SPACE AT BOTTOM - ELIMINATE ALL PADDING/MARGIN ISSUES */
+
+/* Rectangular container - 16:9 aspect ratio */
+.project-photo .image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--border);
+  /* Reset all margins/padding */
+  margin: 0;
+  padding: 0;
+}
+
+/* Force image to fill ENTIRE container - including bottom area */
+.project-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  /* Extend image slightly beyond container to ensure no gaps */
+  transform: scale(1.01); /* Slight scale to cover edges */
+  /* Remove any default image spacing */
+  display: block;
+  vertical-align: bottom; /* Align to bottom */
+}
+
+/* Specifically for Project 2 images to fill bottom */
+#project-2 .project-photo img {
+  object-position: center top; /* Start from top */
+  /* Pull image down to fill bottom */
+  top: 0;
+  height: 102%; /* Slight overflow to ensure no gap */
+}
+
+/* Figcaption - position ABSOLUTELY at bottom with NO MARGIN/PADDING on container */
+.project-photo figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(0, 0, 0, 0.8) 80%, 
+    transparent 100%);
+  color: white;
+  padding: 0.75rem 1rem 0.5rem; /* Reduced padding */
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  z-index: 3; /* Above image */
+  /* No margin that could push image */
+  border-radius: 0 0 22px 22px;
+  /* Ensure it sits flush with bottom */
+  box-sizing: border-box;
+}
+
+/* Remove any extra padding from parent elements */
+.project-photo {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.project-detail__media {
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Alternative: If using padding on .project-photo class */
+.project-photo[class*="project-photo"] {
+  padding: 0 !important;
+  background: none !important;
+}
+
+/* Debug: Add border to see where empty space is */
+.debug-border .image-container {
+  border: 2px solid red;
+}
+
+.debug-border img {
+  border: 2px solid blue;
+}
+
+.debug-border figcaption {
+  border: 2px solid green;
+}
+
+/* Ensure no inherited styles are causing gaps */
+* {
+  box-sizing: border-box;
+}
+
+.project-photo * {
+  margin: 0;
+  padding: 0;
+}
+
