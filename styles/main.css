@@ -571,3 +571,41 @@ main {
   }
 }
 
+/* Christmas Snowflakes */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: rgba(255, 255, 255, 0.8);
+  animation: fall linear infinite;
+  user-select: none;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Christmas accent colors */
+:root {
+  --christmas-red: #dc2626;
+  --christmas-green: #16a34a;
+}
+
+[data-theme="dark"] .snowflake {
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
