@@ -1356,3 +1356,25 @@ main {
   padding: 0;
 }
 
+/* Add to main.css for smooth scrolling and proper anchor positioning */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
+}
+
+/* Ensure project sections have enough spacing when scrolled to */
+.project-detail {
+  scroll-margin-top: 100px; /* Extra space when jumping to anchor */
+}
+
+/* Optional: Add visual indicator for the active project */
+.project-detail:target {
+  animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+  0% { background-color: rgba(255, 182, 87, 0); }
+  50% { background-color: rgba(255, 182, 87, 0.1); }
+  100% { background-color: rgba(255, 182, 87, 0); }
+}
+
