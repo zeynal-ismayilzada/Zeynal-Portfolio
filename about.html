@@ -73,9 +73,8 @@
         <p class="eyebrow">About</p>
         <h1>Turning mathematical theory into practical solutions.</h1>
         <p class="lead">
-          I'm a Bachelor of Mathematics student at ADA University, exploring how mathematical
-          principles apply to real-world problems. My studies focus on discrete mathematics,
-          logic systems, and computational thinking that bridges theory with hands-on projects.
+          I'm a Bachelor of Mathematics student at ADA University, exploring how mathematics apply to critical thinking skills. My studies focus on discrete mathematics,
+          logic systems and diverse thinking that connects theories with manual projects.
         </p>
       </section>
 
@@ -84,14 +83,13 @@
           <h2>Academic background</h2>
           <p>
             Currently pursuing a Bachelor of Mathematics at ADA University, focusing on discrete
-            mathematics, logic systems, and computational applications. I combine rigorous
-            mathematical training with practical projects that demonstrate how theory translates
-            into real-world solutions.
+            mathematics, logic systems, and computational applications. I am capable of combining rigorous
+            mathematical training with practical projects without stumbling on technical difficulties.
           </p>
           <ul class="list">
-            <li>ADA University — Bachelor of Mathematics (In Progress)</li>
-            <li>Coursework: Discrete Mathematics, Logic Systems, Digital Circuits, Computational Methods</li>
-            <li>Research interests: Logic gate applications, mathematical modeling, computational problem-solving</li>
+            <li>ADA University - Bachelor of Mathematics (First Year))</li>
+            <li>Coursework: Calculus Training, Logic Systems, Digital Circuits, Critical Methods</li>
+            <li>Research Interests: Logic Gates, Math Models, Problem Solving</li>
           </ul>
         </article>
 
@@ -108,11 +106,11 @@
             </div>
             <div>
               <dt>Focus</dt>
-              <dd>Discrete Math & Logic</dd>
+              <dd>Math & Logic</dd>
             </div>
             <div>
               <dt>Interests</dt>
-              <dd>Digital circuits, computational thinking, problem-solving</dd>
+              <dd>Digital circuits, technological thinking, problem solving</dd>
             </div>
           </dl>
         </aside>
@@ -122,22 +120,22 @@
         <article class="card">
           <h3>Mathematical toolkit</h3>
           <ul class="pill-list">
-            <li>Discrete Mathematics</li>
+            <li>Discrete Math</li>
             <li>Logic Systems</li>
-            <li>Digital Circuit Design</li>
-            <li>Computational Methods</li>
-            <li>Problem-Solving</li>
-            <li>Mathematical Modeling</li>
+            <li>Circuit Design</li>
+            <li>Technological Methods</li>
+            <li>Problem Solving</li>
+            <li>Math Modeling</li>
           </ul>
         </article>
         <article class="card">
           <h3>Collaboration strengths</h3>
           <ul class="pill-list">
-            <li>Facilitating peer reviews</li>
-            <li>Documenting design decisions</li>
-            <li>Agile planning</li>
-            <li>Inclusive communication</li>
-            <li>Mentoring new coders</li>
+            <li>Peer Reviews</li>
+            <li>Concept Decisions</li>
+            <li>Diverse Blueprints</li>
+            <li>Teamwork Efficiency</li>
+            <li>Mentored Code</li>
           </ul>
         </article>
       </section>
@@ -148,8 +146,7 @@
           <p>
             Beyond coursework, I work on hands-on projects like building logic gate circuits,
             participate in mathematical problem-solving competitions, and collaborate with peers
-            on projects that apply theoretical concepts to practical challenges. These experiences
-            reinforce how mathematical thinking translates into tangible solutions.
+            on projects that apply theoretical concepts to practical challenges.
           </p>
         </article>
       </section>
@@ -158,12 +155,12 @@
     <footer class="site-footer" id="contact-footer">
       <div class="site-footer__brand">
         <span>© <span id="year"></span> Zeynal Ismayilzada</span>
-        <a href="https://github.com/zey" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/zeynal-ismayilzada/" target="_blank" rel="noreferrer">GitHub</a>
       </div>
       <div class="site-footer__social">
         <a
           class="icon-link"
-          href="https://github.com/zey"
+          href="https://github.com/zeynal-ismayilzada/"
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub profile"
@@ -176,7 +173,7 @@
         </a>
         <a
           class="icon-link"
-          href="https://www.codecademy.com/profiles/zey"
+          href="https://www.codecademy.com/profiles/zeynal_ismayilzada"
           target="_blank"
           rel="noreferrer"
           aria-label="Codecademy profile"
@@ -190,7 +187,7 @@
       </div>
       <a
         class="repo-link"
-        href="https://github.com/zey/personal-portfolio"
+        href="https://github.com/zeynal-ismayilzada/Zeynal-Portfolio"
         target="_blank"
         rel="noreferrer"
       >
@@ -228,6 +225,30 @@
           localStorage.setItem("theme", newTheme);
         });
       }
+      
+      // Create snowflakes - ADD THIS PART
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        snowflake.innerHTML = "❄";
+        snowflake.style.left = Math.random() * 100 + "%";
+        snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+        document.querySelector(".snowflakes").appendChild(snowflake);
+        
+        setTimeout(() => {
+          snowflake.remove();
+        }, 5000);
+      }
+      
+      // Create initial snowflakes
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => createSnowflake(), i * 200);
+      }
+      
+      // Continue creating snowflakes
+      setInterval(createSnowflake, 300);
     </script>
   </body>
 </html>
