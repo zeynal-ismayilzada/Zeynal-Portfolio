@@ -79,20 +79,26 @@
       <section class="section project-detail" id="project-1">
         <div class="project-detail__media">
           <figure class="project-photo project-photo--primary">
-            <img
-              src="assets/images/image1.jpeg"
-              alt="Cabinet prototype for the logic-gate planner"
-              loading="lazy"
-            />
-            <figcaption>Cabinet installation showcasing the project's physical interface.</figcaption>
+            <div class="image-container">
+              <img
+                src="assets/images/image1.jpeg"
+                alt="Cabinet prototype for the logic-gate planner"
+                loading="lazy"
+                data-image="project1-primary"
+              />
+              <figcaption>Cabinet installation showcasing the project's physical interface.</figcaption>
+            </div>
           </figure>
           <figure class="project-photo project-photo--secondary">
-            <img
-              src="assets/images/image2.png"
-              alt="Team wiring AND, OR, and XOR gates"
-              loading="lazy"
-            />
-            <figcaption>Collaborating with the team to wire AND/OR/XOR logic modules.</figcaption>
+            <div class="image-container">
+              <img
+                src="assets/images/image2.png"
+                alt="Team wiring AND, OR, and XOR gates"
+                loading="lazy"
+                data-image="project1-secondary"
+              />
+              <figcaption>Collaborating with the team to wire AND/OR/XOR logic modules.</figcaption>
+            </div>
           </figure>
         </div>
         <article class="project-detail__content">
@@ -125,20 +131,26 @@
       <section class="section project-detail" id="project-2">
         <div class="project-detail__media">
           <figure class="project-photo project-photo--primary">
-            <img
-              src="assets/images/image4.jpeg"
-              alt="Hour of Code workshop in progress"
-              loading="lazy"
-            />
-            <figcaption>Facilitating the Hour of Code workshop for 7th-10th grade students.</figcaption>
+            <div class="image-container">
+              <img
+                src="assets/images/image4.jpeg"
+                alt="Hour of Code workshop in progress"
+                loading="lazy"
+                data-image="project2-primary"
+              />
+              <figcaption>Facilitating the Hour of Code workshop for 7th-10th grade students.</figcaption>
+            </div>
           </figure>
           <figure class="project-photo project-photo--secondary">
-            <img
-              src="assets/images/image5.jpeg"
-              alt="Students working on MakeCode Arcade Bug Arena"
-              loading="lazy"
-            />
-            <figcaption>Students learning programming through Microsoft MakeCode Arcade's Bug Arena game.</figcaption>
+            <div class="image-container">
+              <img
+                src="assets/images/image5.jpeg"
+                alt="Students working on MakeCode Arcade Bug Arena"
+                loading="lazy"
+                data-image="project2-secondary"
+              />
+              <figcaption>Students learning programming through Microsoft MakeCode Arcade's Bug Arena game.</figcaption>
+            </div>
           </figure>
         </div>
         <article class="project-detail__content">
@@ -274,6 +286,29 @@
           localStorage.setItem("theme", newTheme);
         });
       }
+      
+      // Image optimization for consistent display
+      function optimizeImageDisplay() {
+        const imageContainers = document.querySelectorAll('.project-photo .image-container');
+        
+        imageContainers.forEach(container => {
+          const img = container.querySelector('img');
+          
+          // Ensure images fill their containers
+          if (img) {
+            img.style.objectFit = 'cover';
+            img.style.objectPosition = 'center';
+            
+            // Adjust object position for specific images if needed
+            if (img.src.includes('image4.jpeg')) {
+              img.style.objectPosition = 'center 25%';
+            }
+          }
+        });
+      }
+      
+      // Initialize on DOM ready
+      document.addEventListener('DOMContentLoaded', optimizeImageDisplay);
       
       // Create snowflakes
       function createSnowflake() {
