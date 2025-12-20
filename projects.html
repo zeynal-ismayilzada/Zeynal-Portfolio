@@ -15,6 +15,68 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Additional styles for project images */
+      .project-photo .image-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        overflow: hidden;
+        border-radius: 22px;
+        background: var(--border);
+        margin: 0;
+        padding: 0;
+      }
+      
+      .project-photo img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+      }
+      
+      /* Specifically for Project 2 images to fill bottom */
+      #project-2 .project-photo img {
+        object-position: center top;
+      }
+      
+      .project-photo figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, 
+          rgba(0, 0, 0, 0.95) 0%, 
+          rgba(0, 0, 0, 0.8) 80%, 
+          transparent 100%);
+        color: white;
+        padding: 0.75rem 1rem 0.5rem;
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        z-index: 2;
+        border-radius: 0 0 22px 22px;
+        box-sizing: border-box;
+      }
+      
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      
+      .project-detail {
+        scroll-margin-top: 100px;
+      }
+      
+      /* REMOVED the :target animation to prevent duplication */
+      /* Keep only one animation method (JavaScript) */
+    </style>
   </head>
   <body>
     <div class="snowflakes" aria-hidden="true"></div>
@@ -68,7 +130,7 @@
     <main>
       <section class="page-hero">
         <p class="eyebrow">Selected Work</p>
-        <h1>Projects that bridge mathematical theory with practical applications.</h1>
+        <h1>Projects that connect theories with practical applications.</h1>
         <p class="lead">
           From hardware circuits to educational workshops, these team projects showcase
           how mathematical and logical principles come to life through hands-on implementation and collaboration.
@@ -84,9 +146,8 @@
                 src="assets/images/image1.jpeg"
                 alt="Cabinet prototype for the logic-gate planner"
                 loading="lazy"
-                data-image="project1-primary"
               />
-              <figcaption>Cabinet installation showcasing the project's physical interface.</figcaption>
+              <figcaption>A showcase of installing the project's physical interface.</figcaption>
             </div>
           </figure>
           <figure class="project-photo project-photo--secondary">
@@ -95,7 +156,6 @@
                 src="assets/images/image2.png"
                 alt="Team wiring AND, OR, and XOR gates"
                 loading="lazy"
-                data-image="project1-secondary"
               />
               <figcaption>Collaborating with the team to wire AND/OR/XOR logic modules.</figcaption>
             </div>
@@ -136,9 +196,8 @@
                 src="assets/images/image4.jpeg"
                 alt="Hour of Code workshop in progress"
                 loading="lazy"
-                data-image="project2-primary"
               />
-              <figcaption>Facilitating the Hour of Code workshop for 7th-10th grade students.</figcaption>
+              <figcaption>Students progressing through the Bug Arena minigame.</figcaption>
             </div>
           </figure>
           <figure class="project-photo project-photo--secondary">
@@ -147,9 +206,8 @@
                 src="assets/images/image5.jpeg"
                 alt="Students working on MakeCode Arcade Bug Arena"
                 loading="lazy"
-                data-image="project2-secondary"
               />
-              <figcaption>Students learning programming through Microsoft MakeCode Arcade's Bug Arena game.</figcaption>
+              <figcaption>The vicious aftermath of the Hour of Code event.</figcaption>
             </div>
           </figure>
         </div>
@@ -185,22 +243,22 @@
         <h2>Additional Projects & Studies</h2>
         <div class="project-grid">
           <article class="card project-card--compact">
-            <h3>Design Systems Study</h3>
+            <h3>Systematic Studies</h3>
             <p>
               Documented reusable components for class projects, including token definitions,
               form patterns, and accessibility notes to improve team efficiency.
             </p>
             <ul class="list">
-              <li>Improved team velocity by 20% through shared guidelines and standards.</li>
+              <li>Improved team velocity with similar guidelines and standards.</li>
               <li>Introduced linting and Prettier workflow for consistent code quality.</li>
               <li>Created comprehensive documentation for team reference and onboarding.</li>
             </ul>
           </article>
 
           <article class="card project-card--compact">
-            <h3>Coming Soon</h3>
+            <h3>Future Designations</h3>
             <p>
-              Currently prototyping an interactive syllabus companion tool that helps classmates
+              Gradually prototyping an interactive syllabus companion tool that helps classmates
               stay on track with coursework milestones and deadlines.
             </p>
             <ul class="list">
@@ -287,28 +345,44 @@
         });
       }
       
-      // Image optimization for consistent display
-      function optimizeImageDisplay() {
-        const imageContainers = document.querySelectorAll('.project-photo .image-container');
+      // Handle anchor link navigation - SIMPLIFIED VERSION
+      document.addEventListener('DOMContentLoaded', function() {
+        const hash = window.location.hash;
         
-        imageContainers.forEach(container => {
-          const img = container.querySelector('img');
-          
-          // Ensure images fill their containers
-          if (img) {
-            img.style.objectFit = 'cover';
-            img.style.objectPosition = 'center';
+        if (hash) {
+          setTimeout(() => {
+            const targetElement = document.querySelector(hash);
             
-            // Adjust object position for specific images if needed
-            if (img.src.includes('image4.jpeg')) {
-              img.style.objectPosition = 'center 25%';
+            if (targetElement) {
+              const headerHeight = document.querySelector('.site-header').offsetHeight;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+              
+              // ONE animation only - no CSS duplication
+              targetElement.style.transition = 'background-color 0.5s ease';
+              targetElement.style.backgroundColor = 'rgba(255, 182, 87, 0.1)';
+              
+              setTimeout(() => {
+                targetElement.style.backgroundColor = '';
+              }, 1500);
             }
+          }, 100);
+        }
+        
+        // Clean up any existing :target styles from CSS
+        const style = document.createElement('style');
+        style.textContent = `
+          .project-detail:target {
+            animation: none !important;
           }
-        });
-      }
-      
-      // Initialize on DOM ready
-      document.addEventListener('DOMContentLoaded', optimizeImageDisplay);
+        `;
+        document.head.appendChild(style);
+      });
       
       // Create snowflakes
       function createSnowflake() {
